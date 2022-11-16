@@ -1,0 +1,23 @@
+{
+  "name": "codeceptjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "DEL /S allure-results\\*.png & DEL /S allure-results\\*.xml",
+    "codecept": "npx codeceptjs run --plugins allure",
+    "test": "npm run codecept & npm run generate-report",
+    "generate-report": "mkdirp allure-results/history & cp allure-report/history/* allure-results/history & allure generate allure-results --clean & allure open allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@codeceptjs/ui": "^0.4.7",
+    "codeceptjs": "^3.3.0",
+    "webdriverio": "^7.19.3"
+  },
+  "devDependencies": {
+    "@wdio/selenium-standalone-service": "^7.19.1"
+  }
+}
